@@ -1,4 +1,4 @@
-package main
+package crawler
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func main() {
+func Crawl() error {
 	doc, err := goquery.NewDocument("http://www.ise.shibaura-it.ac.jp")
 	if err != nil {
 		fmt.Println("url scraping failed")
@@ -19,4 +19,5 @@ func main() {
 	}
 
 	ioutil.WriteFile("./sample.html", []byte(res), os.ModePerm)
+	return nil
 }
